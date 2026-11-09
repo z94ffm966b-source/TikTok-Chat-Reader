@@ -325,6 +325,10 @@ connection.on('gift', (data) => {
 
 // follow
 connection.on('follow', (data) => {
+    $('#lastFollower').html(
+        '⭐ Dernier abonné : @' + sanitize(data.uniqueId || 'Inconnu')
+    );
+
     if (window.settings.showFollows === "0") return;
     addChatItem('#ff005e', data, 'followed');
 })
